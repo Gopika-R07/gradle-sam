@@ -1,0 +1,28 @@
+
+plugins {
+    id 'application'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'junit:junit:4.13.2'
+}
+
+application {
+    mainClass = 'org.example.Main'
+}
+
+tasks.named('test') {
+    useJUnit()
+}
+
+tasks.jar {
+    archiveFileName = 'app.jar'
+
+    manifest {
+        attributes 'Main-Class': 'org.example.Main'
+    }
+}
